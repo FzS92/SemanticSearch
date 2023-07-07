@@ -25,3 +25,9 @@ python app.py
 2. Open the web interface and enjoy the search! 
 
 ![App Screenshot](./screenshots/app_screenshot.png)
+
+## HuggingFace Space
+You can access the web interface and try out by visiting the following link:
+
+HuggingFace Space: [Semantic_Search](https://huggingface.co/spaces/fzs/Semantic_Search)
+
