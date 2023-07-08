@@ -33,5 +33,5 @@ python app.py
 ## HuggingFace Space
 You can access the web interface and try out by visiting the following link:
 
-HuggingFace Space: [Semantic_Search](https://huggingface.co/spaces/fzs/Semantic_Search)
+HuggingFace Space: [Semantic_Search](https://huggingface.co/spaces/fzs/SemanticSearch)
 
