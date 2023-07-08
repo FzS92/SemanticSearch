@@ -9,7 +9,7 @@ import torch
 from sentence_transformers import SentenceTransformer
 from torch.nn.functional import cosine_similarity
 
-from .utils import remove_extra_newlines, separate_paragraphs
+from .utils import get_unique_sentences, remove_extra_newlines, separate_paragraphs
 
 
 def encode_text(text: List[str], model: SentenceTransformer) -> torch.Tensor:
@@ -49,13 +49,14 @@ def get_top_n_cosine_similarity_rows(
     return top_n_indices
 
 
-def semantic_search(model_name: str, searching_for: str, text: str) -> str:
+def semantic_search(model_name: str, mode: str, searching_for: str, text: str) -> str:
     """
     Perform semantic search by measuring the similarity between the
     searching_for text and the text corpus.
 
     Args:
         model_name (str): The name of the SentenceTransformer model.
+        mode (str): Search for most similar sentences or paragraphs?
         searching_for (str): The text to search for.
         text (str): The corpus of text to search in.
 
@@ -66,8 +67,11 @@ def semantic_search(model_name: str, searching_for: str, text: str) -> str:
     model = SentenceTransformer(model_name).to(device)
 
     text = remove_extra_newlines(text)
-    text = separate_paragraphs(text)
-    searching_for = remove_extra_newlines(searching_for)
+    if mode == "Paragraph":
+        text = separate_paragraphs(text)
+    elif mode == "Sentence":
+        text = get_unique_sentences(text)
+
     search_and_text = [searching_for]
     search_and_text.extend(text)
 

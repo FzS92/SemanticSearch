@@ -4,7 +4,7 @@ Utils File
 This file contains utility functions for text processing.
 
 """
-
+import re
 from typing import List, Optional
 
 
@@ -52,3 +52,25 @@ def separate_paragraphs(text: str) -> List[str]:
     """
     paragraphs = text.split("\n")
     return paragraphs
+
+
+def get_unique_sentences(text: str) -> List[str]:
+    """
+    Split the input text into sentences, remove leading empty lines,
+    and return a list of unique sentences.
+
+    Args:
+        text (str): The input text containing sentences.
+
+    Returns:
+        List[str]: A list of unique sentences.
+
+    """
+    text = text.lstrip("\n")  # Remove leading empty lines
+    sentences = re.split(r"(?<=[.!?])\s+|\n", text)
+    print(sentences)
+    unique_sentences = list(set(sentences))
+    # unique_sentences = [
+    #     sentence for sentence in unique_sentences if sentence.strip() != ""
+    # ]
+    return unique_sentences

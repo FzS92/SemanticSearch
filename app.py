@@ -23,6 +23,9 @@ text_example = read_string_from_file("./example/text_example.txt")
 model_name = gr.Textbox(
     value="all-mpnet-base-v2", label="Encoder model (See the code)"
 )  # find the list here: https://www.sbert.net/docs/pretrained_models.html
+mode = gr.Dropdown(
+    choices=["Sentence", "Paragraph"], value="Sentence", label="Search mode"
+)
 searching_for = gr.Textbox(value="IoT in healthcare", label="Semantic search for")
 text = gr.Textbox(value=text_example, label="Your main text")
 
@@ -35,7 +38,7 @@ if __name__ == "__main__":
     iface = gr.Interface(
         fn=semantic_search,
         title="Semantic Search",
-        inputs=[model_name, searching_for, text],
+        inputs=[model_name, mode, searching_for, text],
         outputs=[out],
     )
 
