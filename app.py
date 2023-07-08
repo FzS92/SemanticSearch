@@ -31,7 +31,7 @@ text = gr.Textbox(value=text_example, label="Your main text")
 
 # outputs
 out = gr.Textbox(
-    value="Press submit", label="Top five paragraphs that share similar meaning"
+    value="Press submit", label="Top five results that share close meanings"
 )
 
 if __name__ == "__main__":

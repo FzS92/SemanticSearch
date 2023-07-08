@@ -68,7 +68,6 @@ def get_unique_sentences(text: str) -> List[str]:
     """
     text = text.lstrip("\n")  # Remove leading empty lines
     sentences = re.split(r"(?<=[.!?])\s+|\n", text)
-    print(sentences)
     unique_sentences = list(set(sentences))
     # unique_sentences = [
     #     sentence for sentence in unique_sentences if sentence.strip() != ""
