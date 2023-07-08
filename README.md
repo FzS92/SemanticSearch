@@ -13,8 +13,8 @@ To run the code locally, please follow these instructions:
 1. Clone this repository:
 
 ```python
-git clone https://github.com/FzS92/Semantic_Search
-cd Semantic_Search
+git clone https://github.com/FzS92/SemanticSearch
+cd SemanticSearch
 ```
 2. Install the required dependencies:
 ```python
